@@ -1,0 +1,35 @@
+# votes input [1,2,3,3,3] -> expected output 3
+# goal is to find the employee id who will be elected as board member
+# to win, an id needs n/3 votes
+# n is the number of total votes
+
+
+# use a loop to iterate through the list
+# identify the id and the vote count
+# use a dictionary to store the id and the vote count
+# id as key and vote count as value
+# add the vote count as iterating through the list
+# check any id has at least n/3 votes
+# return the id
+# return -1 as default
+
+
+
+def elect_board_member(votes):
+    employee_dict = {}
+    
+    for id in votes:
+        employee_dict[id] = employee_dict.get(id, 0) + 1
+
+        if employee_dict[id] // 3:
+            return id
+        
+    return -1
+
+    
+        
+# test cases
+print(elect_board_member([1,2,3,3,3]))
+print(elect_board_member([1,1,2,2,2,3,4]))
+print(elect_board_member([]))
+print(elect_board_member([1,2,3,4,5]))
