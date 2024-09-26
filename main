@@ -21,7 +21,7 @@ def elect_board_member(votes):
     for id in votes:
         employee_dict[id] = employee_dict.get(id, 0) + 1
 
-        if employee_dict[id] // 3:
+        if employee_dict[id] >= len(votes) // 3:
             return id
         
     return -1
@@ -33,3 +33,4 @@ print(elect_board_member([1,2,3,3,3]))
 print(elect_board_member([1,1,2,2,2,3,4]))
 print(elect_board_member([]))
 print(elect_board_member([1,2,3,4,5]))
+print(elect_board_member([2,2,3,3,4]))
